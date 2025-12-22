@@ -1,14 +1,23 @@
 import textwrap
 
+
+def get_float(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Please enter a number")
+
+
 group = int(input("How many people are in the group?"))
 groupName = []
 
 for i in range(group):
     groupName.append(input("What is your name?"))
 
-billTotal = int(input("what is the total amount of the bill"))
+billTotal = get_float("what is the total amount of the bill")
 
-totalBill = billTotal / group
+totalBill = round(billTotal / group, 2)
 
 print(f"\n Total Bill: {billTotal}")
 print(f"\n People: {groupName}")
